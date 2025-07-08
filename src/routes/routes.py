@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from ..services.alphaVantage import get_stock_data
 from ..bot.indicators import calculate_rsi, calculate_macd
-from ..bot.stategy import should_buy, should_sell
+from ..bot.strategy import should_buy, should_sell
 
 
 router = APIRouter()
