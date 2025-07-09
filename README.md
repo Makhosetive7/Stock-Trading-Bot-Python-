@@ -1,18 +1,32 @@
 # Automated Stock Trading Bot
 
-A rule-based trading bot using Python, FastAPI, and Alpha Vantage API.
+A Python-based stock analysis bot that uses RSI and MACD indicators to generate actionable BUY/SELL/HOLD signals. Built with **FastAPI**, **Celery**, and **Redis**, this bot fetches real-time stock data.
 
-## Features
-- Real-time price monitoring
-- Technical indicator calculations (RSI, MACD)
-- Paper trading simulation
-- Telegram alert integration
+---
 
+## 🌟 Features
+
+-  Fetch intraday stock data using Alpha Vantage
+-  Calculate technical indicators: RSI and MACD
+-  Generate BUY/SELL/HOLD signals with strategy logic
+-  Scheduled analysis using **Celery Beat**
+-  Async task processing with **Celery + Redis**
+-  Visualize indicators via chart endpoint (matplotlib)
+-  Built with modern async stack (FastAPI + Uvicorn)
+
+---
 ## Tech Stack
-- **Backend:** Python + FastAPI
-- **Data:** Alpha Vantage API
-- **Scheduling:** Celery + Redis
-- **Alerts:** Telegram Bot API
+
+| Tool           | Purpose                        |
+|----------------|---------------------------------|
+| Python         | Core programming language       |
+| FastAPI        | API framework                   |
+| Celery         | Background task queue           |
+| Redis          | Message broker for Celery       |
+| Matplotlib     | Plot stock + indicator charts   |
+| Alpha Vantage  | Financial data provider         |
+
+---
 
 ## Quick Start
 ```bash
