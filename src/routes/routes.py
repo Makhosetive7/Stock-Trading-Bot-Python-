@@ -2,6 +2,7 @@ from fastapi import APIRouter
 from ..services.alphaVantage import get_stock_data
 from ..bot.indicators import calculate_rsi, calculate_macd
 from ..bot.strategy import should_buy, should_sell
+from ..bot.visualizer import generate_stock_chart
 
 
 router = APIRouter()
@@ -10,6 +11,17 @@ router = APIRouter()
 @router.get("/ping")
 def health_check():
     return {"status": "ok"}
+
+
+@router.get("/chart/{symbol}")
+def chart(symbol: str):
+    df = get_stock_data(symbol)
+    df = calculate_rsi(df)
+    df = calculate_macd(df)
+    df.dropna(inplace=True)
+    return generate_stock_chart(df, symbol)
+
+
 
 @router.get("/analyze/{symbol}")
 def analyze(symbol: str):
@@ -41,3 +53,6 @@ def analyze(symbol: str):
 
     except Exception as e:
         return {"error": str(e)}
+    
+    
+    
